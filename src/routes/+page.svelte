@@ -4,8 +4,6 @@
 
 	import * as d3 from 'd3';
 
-	import {} from 'd3-color';
-
 	import { scaleLinear, scaleOrdinal } from 'd3-scale';
 	import { select, selectAll } from 'd3-selection';
 
