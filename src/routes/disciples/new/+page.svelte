@@ -1,10 +1,12 @@
 <script  lang="ts">
 	import DateInput from '$lib/components/DateInput.svelte';
-	import { Alert, Input, Label, Button, Toggle, Helper } from 'flowbite-svelte';    
+	import { Alert, Input, Label, Button, Toggle, Helper, Select } from 'flowbite-svelte';    
 	import type { ActionData, PageData } from "./$types"
 	
 	export let data: PageData
 	export let form: ActionData
+
+	let church = ""
 	let messages: any = {}
 	let type:any = {}
 	let error = form?.error
@@ -43,6 +45,11 @@
 			<Label for="password" color={type["password"] ?? "base"} class="mb-2">Senha</Label>
 			<Input name="password" color={type["password"] ?? "base"} type="password" id="password" placeholder="Digite sua senha" required />
 			<Helper class='mt-2' color='red'><span class="font-medium">{messages["password"] ?? ""}</Helper>
+		</div>
+		<div class="mb-6">
+		<Label>Igreja na casa
+			<Select name="churchId" class="mt-2" items={data.churchs} placeholder="Selecione uma igreja na casa"/>
+		</Label>
 		</div>
 		<div class="mb-6">
 			<Toggle name="isPastor">Pastor</Toggle>

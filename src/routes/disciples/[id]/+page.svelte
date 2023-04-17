@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Card, Heading, Li, List } from "flowbite-svelte";
+	import { Button, Card, Li, List } from "flowbite-svelte";
 	import type { PageData } from "./$types";
 	import DiscipleSingleFilter from "$lib/components/DiscipleSingleFilter.svelte";
 	import DiscipleMultipleFilter from "$lib/components/DiscipleMultipleFilter.svelte";
@@ -31,8 +31,6 @@
 		<List tag="ul" class="space-y-1" list="none">
 			<Li>Nome: {data.profile.name}</Li>
 			<Li>E-mail: {data.profile.expand.user_id.email}</Li>
-			<Li>Discipulador(a): {data.profile.expand.discipler_id.name}</Li>
-			<Li>Companheirismo: {data.profile.expand.companionship.map(c => c.name)}</Li>
 		</List>
 		
 	</Card>

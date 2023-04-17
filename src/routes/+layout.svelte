@@ -3,7 +3,7 @@
 	import '../app.postcss';
 	import type { LayoutData } from './$types';
 	import { applyAction, enhance } from '$app/forms';
-	import { currentUser, pb } from '$lib/pb';
+	import pb, { currentUser } from '$lib/pb';
 
 	export let data: LayoutData
 

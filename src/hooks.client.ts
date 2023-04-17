@@ -1,4 +1,4 @@
-import { currentUser, pb } from '$lib/pb'
+import pb, { currentUser } from '$lib/pb'
 
 pb.authStore.loadFromCookie(document.cookie)
 pb.authStore.onChange(() => {
