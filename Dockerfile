@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-slim
 
 RUN npm install -g npm@9.6.4
 RUN npm i -g pnpm@latest
@@ -19,5 +19,7 @@ RUN pnpm install --frozen-lockfile
 RUN pnpm build
 
 EXPOSE 8080
+
+ENV PORT 8080
 
 CMD ["node", "build"]
