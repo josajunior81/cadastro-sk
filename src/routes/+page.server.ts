@@ -6,6 +6,6 @@ export const load: PageServerLoad = (async ({ params, locals}) => {
 //   if(!locals.pb.authStore.isValid) {
 //   throw redirect(303, '/login')
 // }
-  const disciples = await locals.pb.collection("disciples").getFullList( {expand: "discipler_id,companionship"})
+  const disciples = await locals.pb.collection("disciples").getFullList( {expand: "discipler_id,companionship,church_id"})
   return { disciples: serializeNonPOJOs(disciples) }
 }) satisfies PageServerLoad

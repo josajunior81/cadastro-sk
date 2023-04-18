@@ -23,9 +23,9 @@
 		</NavBrand>
 		<NavHamburger on:click={toggle} />
 		<NavUl {hidden}>
-		  <NavLi href="/disciples/new"></NavLi>
+		  <NavLi href="/disciples/new">Registrar</NavLi>
 		  {#if ! data.user }
-		  <NavLi href="/login">Entrar</NavLi>
+			<NavLi href="/login">Entrar</NavLi>
 		  {:else}
 			<NavLi href='/disciples/{data.user.id}'>Meu perfil</NavLi>
 			{/if}	
