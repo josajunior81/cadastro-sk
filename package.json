@@ -41,6 +41,7 @@
 		"svelte-check": "^3.0.1",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
+		"vis-network": "^9.1.6",
 		"vite": "^4.2.0",
 		"vitest": "^0.25.3"
 	},
@@ -50,10 +51,10 @@
 		"@sveltejs/kit": "^1.5.0",
 		"flowbite": "^1.6.5",
 		"flowbite-svelte": "^0.34.7",
+		"pocketbase": "^0.13.1",
 		"postcss": "^8.4.14",
 		"postcss-load-config": "^4.0.1",
 		"svelte-preprocess": "^4.10.7",
-		"tailwindcss": "^3.1.5",
-		"pocketbase": "^0.13.1"
+		"tailwindcss": "^3.1.5"
 	}
 }

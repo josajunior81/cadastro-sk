@@ -1,5 +1,6 @@
 <script lang="ts">
 	import D3Graph from "$lib/components/D3Graph.svelte";
+	import VisNetwork from "$lib/components/VisNetwork.svelte";
 	import type { I } from "vitest/dist/types-de0e0997.js";
 
 	export let data;
@@ -42,4 +43,4 @@
 
 </script>
 
-<D3Graph data={disciples} />
+<VisNetwork data={disciples} />
