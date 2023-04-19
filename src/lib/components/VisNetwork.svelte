@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-  import {Network} from 'vis-network'
+	import { Network } from 'vis-network';
 
-  let mynetwork
+	let mynetwork;
 	let width = 800;
 	let height = 600;
 	const nodeRadius = 5;
@@ -17,68 +17,66 @@
 	data.forEach((d) => {
 		nodes.push({ id: d.id, label: d.name });
 		if (d.expand.discipler_id)
-			links.push({ from: d.id, to: d.expand.discipler_id.id, arrows: "to"});
-    if (d.expand.companionship) {
-      const companions = d.expand.companionship
-      companions.forEach(c => {
-        links.push({ from: d.id, to: c.id, arrows: "to", color: {color: "orange"} });
-      })
-    }
+			links.push({ from: d.id, to: d.expand.discipler_id.id, arrows: 'to' });
+		if (d.expand.companionship) {
+			const companions = d.expand.companionship;
+			companions.forEach((c) => {
+				links.push({ from: d.id, to: c.id, arrows: 'to', color: { color: 'orange' } });
+			});
+		}
 	});
 
-  let simulation
+	let simulation;
 	onMount(() => {
-    const networkData = {
-      nodes: nodes,
-      edges: links
-    }
-    const options = {
-      // layout: {
-      //   hierarchical: {
-      //     sortMethod: "directed",
-      //     shakeTowards: "leaves",
-      //   },
-      // },
-      // edges: {
-      //   smooth: true,
-      //   arrows: { to: true },
-      // },
-    };
-    const network = new Network(mynetwork, networkData, options);
+		const networkData = {
+			nodes: nodes,
+			edges: links
+		};
+		const options = {
+			// layout: {
+			//   hierarchical: {
+			//     sortMethod: "directed",
+			//     shakeTowards: "leaves",
+			//   },
+			// },
+			// edges: {
+			//   smooth: true,
+			//   arrows: { to: true },
+			// },
+		};
+		const network = new Network(mynetwork, networkData, options);
 
-    network.cluster();
+		network.cluster();
 	});
-
 </script>
 
-<div bind:this={mynetwork} id="mynetwork"></div>
+<div bind:this={mynetwork} id="mynetwork" />
 
 <style>
-  html,
-body,
-#mynetwork {
-  margin: 0px;
-  padding: 0px;
-}
+	html,
+	body,
+	#mynetwork {
+		margin: 0px;
+		padding: 0px;
+	}
 
-#mynetwork {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 50%;
-  min-height: 100vh;
-  border-right: 1px solid lightgray;
-  background: white;
-}
+	#mynetwork {
+		position: fixed;
+		left: 20%;
+		top: 15%;
+		bottom: 100px;
+		right: 20%;
+		border: 1px solid lightgray;
+		background: white;
+	}
 
-#text {
-  position: absolute;
-  left: 50%;
-  padding: 1em;
-}
+	#text {
+		position: absolute;
+		left: 50%;
+		padding: 1em;
+	}
 
-#title {
-  margin-bottom: 5em;
-}
+	#title {
+		margin-bottom: 5em;
+	}
 </style>
