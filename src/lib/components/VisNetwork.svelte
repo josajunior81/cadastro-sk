@@ -15,7 +15,7 @@
 	const nodes: any[] = [];
 
 	data.forEach((d) => {
-		nodes.push({ id: d.id, label: d.name });
+		nodes.push({ id: d.id, level: -d.position, label: d.name });
 		if (d.expand.discipler_id)
 			links.push({ from: d.id, to: d.expand.discipler_id.id, arrows: 'to' });
 		if (d.expand.companionship) {
@@ -33,20 +33,20 @@
 			edges: links
 		};
 		const options = {
-			// layout: {
-			//   hierarchical: {
-			//     sortMethod: "directed",
-			//     shakeTowards: "leaves",
-			//   },
-			// },
-			// edges: {
-			//   smooth: true,
-			//   arrows: { to: true },
-			// },
+			layout: {
+			  hierarchical: {
+          direction: "UD",
+			    sortMethod: "hubsize",
+			    shakeTowards: "leaves",
+			  },
+			},
+			edges: {
+			  smooth: true,
+			  arrows: { to: true },
+			},
 		};
 		const network = new Network(mynetwork, networkData, options);
 
-		network.cluster();
 	});
 </script>
 
@@ -64,15 +64,16 @@
 		position: fixed;
 		left: 20%;
 		top: 15%;
-		bottom: 100px;
-		right: 20%;
+		bottom: 5%;
+		right: 10%;
 		border: 1px solid lightgray;
 		background: white;
+    z-index: -1;
 	}
 
 	#text {
 		position: absolute;
-		left: 50%;
+		left: 10%;
 		padding: 1em;
 	}
 
